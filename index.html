@@ -2,20 +2,21 @@
 <!--
   shipreel — sales page.
 
-  BEFORE PUBLISHING, replace the two checkout links (search for POLAR-CHECKOUT):
-    solo  → your Polar/Lemon Squeezy product link for the single-developer licence
-    team  → the same for the company licence
-  Everything else is real: the videos are shipreel's own output.
+  BEFORE TAKING PAYMENT: replace every CHECKOUT-SOLO / CHECKOUT-TEAM href with the real product
+  link. Until then they point at the contact page, which is honest: there is no checkout yet.
+
+  Every number on this page is real and checkable in the product repo:
+  26 platform presets, 234 tests, 5 frame sizes, -14.9 LUFS / 22.6s / 1080x1920 from the hero render.
 -->
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>shipreel — your releases deserve better than a changelog</title>
-<meta name="description" content="A Claude Code skill and CLI that turns your project into a launch video — and checks its own work. Release videos from git tags, PR preview clips, 26 platform presets. One-time licence." />
-<meta name="theme-color" content="#e26a3a" />
-<meta property="og:title" content="shipreel — your releases deserve better than a changelog" />
-<meta property="og:description" content="Turn your project into a launch video. It renders, then verifies: loudness, phone-legible text, platform safe zones, baked thumbnails." />
+<title>shipreel — the launch video that checks its own work</title>
+<meta name="description" content="A Claude Code skill and CLI that turns your project into a launch video, then verifies it: loudness, phone-legible text, platform safe zones, baked thumbnails. Release videos from git tags, before/after clips on pull requests." />
+<meta name="theme-color" content="#e8501f" />
+<meta property="og:title" content="shipreel — the launch video that checks its own work" />
+<meta property="og:description" content="Renders a launch video from your project, then measures it before you post: loudness, legibility, safe zones, thumbnails." />
 <meta property="og:image" content="assets/hero-poster.jpg" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -32,7 +33,7 @@
   <div class="topbar">
     <span class="mark">/shipreel</span>
     <nav aria-label="primary">
-      <a href="#checks">how it works</a>
+      <a href="#report">what it checks</a>
       <a href="#examples">examples</a>
       <a href="#pricing">pricing</a>
     </nav>
@@ -41,14 +42,21 @@
   <div class="hero-main">
     <div class="hero-body">
       <h1 class="hero-headline">your releases<br/>deserve better than<br/>a <span class="emph">changelog.</span></h1>
-      <p class="hero-sub">A Claude Code skill and CLI that turns your project into a <strong>twenty-second launch video</strong> — then checks its own work before you post it.</p>
+      <p class="hero-sub">A Claude Code skill and CLI that turns your project into a twenty-second launch video, then <strong>measures it</strong> before you post it.</p>
       <div class="hero-cta">
-        <a class="buy" href="POLAR-CHECKOUT-SOLO">get it — $39 once</a>
-        <span class="cta-note">one developer · perpetual licence · 30-day refund</span>
+        <a class="buy" href="https://www.irvinosazee.me/contact">get a licence — $39</a>
+        <span class="cta-note">one developer, perpetual. No checkout yet, so this opens a message form.</span>
       </div>
     </div>
+
     <aside class="hero-video" aria-label="the video shipreel made about itself">
       <video id="hero-vid" class="hero-video-media" src="assets/hero.mp4" poster="assets/hero-poster.jpg" muted loop playsinline preload="auto"></video>
+      <!-- The product's own vernacular: this is the safe rectangle it keeps text inside. -->
+      <div class="safe-overlay" aria-hidden="true">
+        <span class="safe-rect"></span>
+        <span class="safe-tag safe-tag--top">tiktok ui</span>
+        <span class="safe-tag safe-tag--bottom">caption area</span>
+      </div>
       <div class="hero-controls">
         <button id="hero-playback" class="hero-control hero-playback" type="button" aria-label="play launch video" title="play launch video" data-mode="play">
           <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
@@ -59,40 +67,57 @@
           <svg class="icon-sound" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 9v6h4l5 4V5L7 9H3zm10.5 3a4.5 4.5 0 00-2.5-4.03v8.05A4.5 4.5 0 0013.5 12zm-2.5-9v2.06A7 7 0 0117 12a7 7 0 01-6 6.92V21A9 9 0 0019 12 9 9 0 0011 3z"/></svg>
         </button>
       </div>
-      <p class="hero-video-tag">made by shipreel, on shipreel</p>
+      <p class="hero-video-tag">made by shipreel, about shipreel</p>
     </aside>
   </div>
 </header>
 
-<section class="checks" id="checks" aria-labelledby="checks-title">
-  <div class="section-inner">
-    <p class="eyebrow">the part nothing else does</p>
-    <h2 class="section-title" id="checks-title">it checks its<br/>own work.</h2>
-    <p class="section-lede">Anything can generate a video. The question is whether you can post it without watching all twenty seconds first. Every render is measured before you ever see it:</p>
-    <ul class="check-list">
-      <li><strong>Loudness</strong> mastered to −14 LUFS, so it isn't the quiet one in the feed.</li>
-      <li><strong>Text legibility</strong> — every line big enough to read on a phone, held long enough to actually read.</li>
-      <li><strong>Platform safe zones</strong> — nothing hidden behind TikTok's buttons or Instagram's caption bar.</li>
-      <li><strong>Thumbnail baked into frame 0</strong>, so Slack, X and Discord show the frame you chose.</li>
-      <li><strong>Contrast</strong> checked against WCAG on every caption and title.</li>
-      <li><strong>Golden frames</strong> — a reference set that catches a render silently changing.</li>
-    </ul>
-    <p class="section-foot">If a check fails, it tells you which one and why. 234 tests run on every change to the tool itself.</p>
+<section class="report" id="report" aria-labelledby="report-title">
+  <div class="report-inner">
+    <div class="report-copy">
+      <h2 class="section-title" id="report-title">anything can make a video.</h2>
+      <p class="section-lede">The question is whether you can post it without watching all twenty seconds first. shipreel measures every render and tells you what it found — this is the actual report from the video above.</p>
+      <p class="section-foot">A failed check names itself and why. The tool that produces these reports is covered by 234 tests, run on every change.</p>
+    </div>
+
+    <figure class="verify" aria-label="verification report for the hero video">
+      <figcaption class="verify-head"><span class="verify-cmd">shipreel verify shipreel.mp4</span></figcaption>
+      <ol class="verify-rows">
+        <li><span class="vk">duration</span><span class="vv">22.6s</span><span class="vs">within plan</span></li>
+        <li><span class="vk">frame</span><span class="vv">1080×1920</span><span class="vs">vertical</span></li>
+        <li><span class="vk">loudness</span><span class="vv">−14.9 LUFS</span><span class="vs">feed-matched</span></li>
+        <li><span class="vk">poster</span><span class="vv">frame 0</span><span class="vs">baked in</span></li>
+        <li><span class="vk">type size</span><span class="vv">42px min</span><span class="vs">phone legible</span></li>
+        <li><span class="vk">read time</span><span class="vv">0.3s / word</span><span class="vs">held long enough</span></li>
+        <li><span class="vk">safe zone</span><span class="vv">1080×1920</span><span class="vs">clear of app ui</span></li>
+        <li><span class="vk">contrast</span><span class="vv">15 / 15</span><span class="vs">wcag pass</span></li>
+        <li><span class="vk">golden frames</span><span class="vv">0.99 ssim</span><span class="vs">no drift</span></li>
+      </ol>
+    </figure>
   </div>
 </section>
 
 <section class="recurring" aria-labelledby="recurring-title">
   <div class="section-inner">
-    <p class="eyebrow">not just launch day</p>
-    <h2 class="section-title" id="recurring-title">every release.<br/>every pull request.</h2>
+    <h2 class="section-title" id="recurring-title">launch day is one day.<br/>releases are every week.</h2>
     <div class="two-up">
-      <article>
-        <h3>Release videos from git tags</h3>
-        <p>Point it at a tag. It reads the release notes, or the commits since the last tag, and renders a video with the real numbers — commits, contributors, files changed — and the install command for that version. A GitHub Action attaches it to the release automatically.</p>
+      <article class="panel">
+        <h3>Tag a release, get a video</h3>
+        <p>It reads your release notes, or the commits since the last tag, and renders with the real numbers. A GitHub Action attaches the file to the release itself.</p>
+        <pre class="snippet" aria-label="example release video output"><code>git tag v1.2.0 &amp;&amp; git push --tags
+
+  <span class="ok">→</span> release.mp4 attached
+     4 commits · 80 files changed
+     "npm i yourpkg@1.2.0"</code></pre>
       </article>
-      <article>
-        <h3>Before / after clips on pull requests</h3>
-        <p>It works out which pages a PR touches, captures them on production and on the preview deployment, scores the difference, and comments a labelled before/after clip. Reviewers see the change instead of imagining it.</p>
+      <article class="panel">
+        <h3>Open a PR, see the difference</h3>
+        <p>It works out which pages the PR touches, captures them on production and on the preview, scores the change and comments once — editing that comment on every new deploy instead of stacking up.</p>
+        <pre class="snippet" aria-label="example pull request comment"><code>shipreel preview
+
+  page      result      ssim
+  /         changed     0.911
+  /about    unchanged   0.999</code></pre>
       </article>
     </div>
   </div>
@@ -100,30 +125,43 @@
 
 <section class="gallery" id="examples" aria-labelledby="gallery-title">
   <div class="gallery-head">
-    <p class="gallery-eyebrow">three real projects · three real reels</p>
-    <h2 class="gallery-title" id="gallery-title">what twenty<br/>seconds of <em>proof</em><br/>looks like.</h2>
+    <h2 class="gallery-title" id="gallery-title">twenty seconds,<br/>three real projects.</h2>
+    <p class="gallery-note">Each made by the tool from that project's own code — no stock footage, no template filled in by hand. Sound on.</p>
   </div>
   <div class="grid">
     <article class="card" data-place="feature">
       <div class="card-media">
         <video class="shipreel" src="examples/horse-tinder/shipreel.mp4" poster="examples/horse-tinder/shipreel.jpg" preload="metadata" playsinline controls aria-label="horse tinder launch video"></video>
       </div>
-      <div class="card-cap"><span class="cap-text"><span class="num">01</span><span class="card-name">horse tinder</span><span class="cap-cat">dating</span></span></div>
+      <div class="card-cap"><span class="cap-text"><span class="card-name">horse tinder</span><span class="cap-cat">dating</span></span></div>
     </article>
     <article class="card" data-place="tall">
       <div class="card-media">
         <video class="shipreel" src="examples/fish-flight-school/shipreel.mp4" poster="examples/fish-flight-school/shipreel.jpg" preload="metadata" playsinline controls aria-label="fish flight school launch video"></video>
       </div>
-      <div class="card-cap"><span class="cap-text"><span class="num">02</span><span class="card-name">fish flight school</span><span class="cap-cat">education</span></span></div>
+      <div class="card-cap"><span class="cap-text"><span class="card-name">fish flight school</span><span class="cap-cat">education</span></span></div>
     </article>
     <article class="card" data-place="wide">
       <div class="card-media">
         <video class="shipreel" src="examples/taxi-for-taxis/shipreel.mp4" poster="examples/taxi-for-taxis/shipreel.jpg" preload="metadata" playsinline controls aria-label="taxi for taxis launch video"></video>
       </div>
-      <div class="card-cap"><span class="cap-text"><span class="num">03</span><span class="card-name">taxi for taxis</span><span class="cap-cat">logistics</span></span></div>
+      <div class="card-cap"><span class="cap-text"><span class="card-name">taxi for taxis</span><span class="cap-cat">logistics</span></span></div>
     </article>
   </div>
-  <p class="gallery-note">Each one was made by the tool from the project's own code — no stock footage, no templates filled in by hand.</p>
+</section>
+
+<section class="platforms" aria-labelledby="platforms-title">
+  <div class="section-inner platforms-inner">
+    <h2 class="section-title" id="platforms-title">one plan, every shape.</h2>
+    <p class="section-lede">Five frame sizes — 1920×1080, 1080×1920, 1080×1080, 1080×1350, 1000×1500 — and twenty-six presets that each carry their platform's safe zone, caption style, duration window and size budget, taken from that platform's own documentation.</p>
+  </div>
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>TikTok</span><span>Instagram Reels</span><span>YouTube Shorts</span><span>X</span><span>LinkedIn</span><span>YouTube</span><span>Product Hunt</span><span>GitHub README</span><span>Discord</span><span>Instagram feed</span><span>Instagram Stories</span><span>Facebook feed</span><span>Facebook Reels</span><span>Threads</span><span>Bluesky</span><span>Mastodon</span><span>Reddit</span><span>Snapchat Spotlight</span><span>Pinterest</span><span>WhatsApp status</span><span>Telegram</span><span>Slack</span><span>Vimeo</span><span>dev.to</span><span>App Store preview</span><span>Google Play preview</span>
+      <span>TikTok</span><span>Instagram Reels</span><span>YouTube Shorts</span><span>X</span><span>LinkedIn</span><span>YouTube</span><span>Product Hunt</span><span>GitHub README</span><span>Discord</span><span>Instagram feed</span><span>Instagram Stories</span><span>Facebook feed</span><span>Facebook Reels</span><span>Threads</span><span>Bluesky</span><span>Mastodon</span><span>Reddit</span><span>Snapchat Spotlight</span><span>Pinterest</span><span>WhatsApp status</span><span>Telegram</span><span>Slack</span><span>Vimeo</span><span>dev.to</span><span>App Store preview</span><span>Google Play preview</span>
+    </div>
+  </div>
+  <p class="marquee-fallback">TikTok, Instagram Reels and Stories and feed, YouTube and Shorts, X, LinkedIn, Facebook and Facebook Reels, Threads, Bluesky, Mastodon, Reddit, Snapchat Spotlight, Pinterest, WhatsApp status, Telegram, Slack, Discord, Vimeo, dev.to, GitHub README, Product Hunt, App Store and Google Play previews.</p>
 </section>
 
 <section class="specs" aria-labelledby="specs-title">
@@ -133,14 +171,15 @@
       <article>
         <h3>In the box</h3>
         <ul class="plain-list">
-          <li>The <code>/shipreel</code> skill — Claude Code, Codex, opencode, Cursor, or any agent that reads skills</li>
-          <li>The standalone CLI, for when you'd rather not involve an agent at all</li>
-          <li>26 platform presets — TikTok, Reels, Shorts, Stories, X, LinkedIn, YouTube, Bluesky, Threads, Reddit, Pinterest, App Store, and the rest</li>
-          <li>Scene kits: terminals, code editors, phone frames, browser frames, API cards</li>
+          <li>The <code>/shipreel</code> skill, for Claude Code, Codex, opencode, Cursor, or any agent that reads skills</li>
+          <li>The standalone CLI, when you'd rather not involve an agent</li>
+          <li>26 platform presets across 5 frame sizes</li>
+          <li>Scene kits — terminal, code editor, phone frame, browser frame, API card, cursor, game HUD</li>
           <li>Release-video and PR-preview GitHub Actions</li>
-          <li>Launch kit: covers, thumbnails, an X thread, a LinkedIn post, embed snippets</li>
-          <li>Bundled music and sound effects, cleared for commercial use</li>
-          <li>12 months of updates; the version you buy works forever</li>
+          <li>Launch kit: covers, thumbnails, an X thread, a LinkedIn post, embed snippets, credits</li>
+          <li>Captions, cutdowns, stories, carousels, and nine-language localisation</li>
+          <li>Music and sound effects cleared for commercial use</li>
+          <li>12 months of updates; the version you buy keeps working</li>
         </ul>
       </article>
       <article>
@@ -148,10 +187,10 @@
         <ul class="plain-list">
           <li>Node.js 22 or newer</li>
           <li>FFmpeg on your PATH</li>
-          <li>Chrome (for capturing your real UI)</li>
-          <li>For the bespoke path: a coding agent. For the template path: nothing but the CLI</li>
+          <li>Chrome, for capturing your real interface</li>
+          <li>An agent, only for the bespoke path — the CLI works alone</li>
         </ul>
-        <p class="aside-note">Rendering happens on <strong>your</strong> machine. Nothing is uploaded, nothing is posted, no account to create, no per-render fee — ever.</p>
+        <p class="aside-note">Rendering runs on your machine. No account, no upload, no per-render fee, and nothing posted anywhere — shipreel writes files and stops.</p>
       </article>
     </div>
   </div>
@@ -159,30 +198,26 @@
 
 <section class="pricing" id="pricing" aria-labelledby="pricing-title">
   <div class="section-inner">
-    <h2 class="section-title" id="pricing-title">one price.<br/>no subscription.</h2>
-    <div class="price-grid">
-      <article class="price-card">
-        <h3>Solo</h3>
-        <p class="price">$39<span>once</span></p>
-        <ul class="plain-list">
-          <li>One developer, unlimited projects</li>
-          <li>Unlimited videos, yours to use commercially</li>
-          <li>12 months of updates</li>
-        </ul>
-        <a class="buy" href="POLAR-CHECKOUT-SOLO">get it — $39</a>
-      </article>
-      <article class="price-card price-card--team">
-        <h3>Team</h3>
-        <p class="price">$149<span>once</span></p>
-        <ul class="plain-list">
-          <li>Everyone at one company</li>
-          <li>Use it in CI, on every release</li>
-          <li>12 months of updates</li>
-        </ul>
-        <a class="buy buy--ghost" href="POLAR-CHECKOUT-TEAM">get it — $149</a>
-      </article>
+    <h2 class="section-title" id="pricing-title">buy it once.</h2>
+    <div class="invoice">
+      <div class="invoice-row">
+        <div class="invoice-what">
+          <h3>Solo</h3>
+          <p>One developer. Every project you work on, unlimited videos, yours commercially.</p>
+        </div>
+        <p class="price">$39</p>
+        <a class="buy" href="https://www.irvinosazee.me/contact">get it</a>
+      </div>
+      <div class="invoice-row">
+        <div class="invoice-what">
+          <h3>Team</h3>
+          <p>Everyone at one company, including CI on every release.</p>
+        </div>
+        <p class="price">$149</p>
+        <a class="buy buy--ghost" href="https://www.irvinosazee.me/contact">get it</a>
+      </div>
     </div>
-    <p class="section-foot">30-day refund, no argument. <a href="#faq">Questions first?</a></p>
+    <p class="section-foot">Both perpetual, both include 12 months of updates, both refundable for 30 days. No subscription, and no per-render charge — your machine does the rendering.</p>
   </div>
 </section>
 
@@ -192,27 +227,31 @@
     <div class="faq-list">
       <details>
         <summary>There's a free tool called /brag. How is this different?</summary>
-        <p>shipreel started as a fork of <a href="https://github.com/latent-spaces/brag" target="_blank" rel="noopener">/brag</a> by Shunit Haviv Hakimi, and that project is excellent — if it does what you need, use it. The difference is everything built on top: /brag is a prompt and a set of assets that tells an agent how to make one landscape video. shipreel verifies what comes out (loudness, legibility, safe zones, thumbnails, golden frames), reflows one plan across five frame sizes and 26 platforms, captures your running UI, cites every on-screen claim to a file in your repo, and ships release videos, PR previews, a GitHub Action and a standalone CLI. 36 scripts and 234 tests, where the original had one script and none.</p>
+        <p>shipreel is a fork of <a href="https://github.com/latent-spaces/brag" target="_blank" rel="noopener">/brag</a> by Shunit Haviv Hakimi, and that project is good — if it does what you need, use it, it's free. The difference is what sits on top. /brag is a prompt and a set of assets telling an agent how to make one landscape video. shipreel verifies what comes out, reflows one plan across five frame sizes and 26 platforms, captures your running interface, cites on-screen claims to files in your repo, and adds release videos, PR previews, a GitHub Action and a standalone CLI. One script and no tests became 36 scripts and 234.</p>
       </details>
       <details>
-        <summary>Does it upload my code anywhere?</summary>
-        <p>No. It reads your repo locally and renders locally. There is no shipreel server, no account, and no telemetry in the skill. The only network calls are the ones your own tools make — fetching Hyperframes to render, and fetching GitHub or npm numbers if you ask for live metrics.</p>
+        <summary>Does my code leave my machine?</summary>
+        <p>No. It reads your repo and renders locally; there is no shipreel server and no account. shipreel itself sends nothing. Be aware that the tools it drives have their own behaviour: Hyperframes is fetched from npm to render and reports anonymous usage of its own, and live-metrics mode calls GitHub or npm because you asked it to.</p>
       </details>
       <details>
         <summary>Can I use the videos commercially?</summary>
-        <p>Yes — they're yours, with no royalty, no watermark and no credit to shipreel required. The bundled music is CC BY 4.0 by Sascha Ende, so if you use it, credit him: every launch kit writes that line into <code>credits.txt</code> for you. Sound effects are CC0 by Kenney.</p>
+        <p>Yes — no royalty, no watermark, no credit to shipreel required. The bundled music is CC BY 4.0 by Sascha Ende, so credit him if you use it; every launch kit writes that line into <code>credits.txt</code> for you. Sound effects are CC0 by Kenney. Don't register a render that contains the music with YouTube Content ID — that licence forbids it.</p>
       </details>
       <details>
-        <summary>What exactly am I licensed to do?</summary>
-        <p>Use and modify it for one developer, or for everyone at one company, forever. You can't redistribute or resell the source, or offer it as a competing hosted service. Two carve-outs sit above that: the upstream MIT portions stay MIT, and the bundled audio stays under its own licence.</p>
+        <summary>What am I licensed to do?</summary>
+        <p>Use and modify it, forever, for one developer or for everyone at one company. You can't redistribute or resell the source, or run it as a competing hosted service. Two carve-outs override that: the upstream MIT portions stay MIT, and the bundled audio keeps its own licence.</p>
       </details>
       <details>
         <summary>What if it breaks?</summary>
-        <p>It renders through Hyperframes, FFmpeg and Chrome, which all move independently — so it can break. A nightly job renders a real composition against the latest Hyperframes so breakage surfaces within a day rather than when you need a video. If something's broken for you, email me; if it's unusable, take the refund.</p>
+        <p>It drives Hyperframes, FFmpeg and Chrome, which move independently of it, so it can. A nightly job renders a real composition against the current Hyperframes, so breakage shows up within a day rather than when you need a video. If it's broken for you, say so; if it's unusable, take the refund.</p>
       </details>
       <details>
         <summary>Do I need Claude Code?</summary>
-        <p>No. The CLI path needs no agent at all — it reads your package metadata, README and git history, captures your site, and fills a clean template. An agent gets you a video written for your specific project rather than a filled-in template, which is better, but it's not required.</p>
+        <p>No. The CLI reads your package metadata, README and git history, captures your site, and fills a clean template with no agent at all. An agent writes something made for your project instead of a filled-in template, which is better — but it isn't required.</p>
+      </details>
+      <details>
+        <summary>Where do I buy it?</summary>
+        <p>Right now, by asking — the checkout isn't live, so the buttons open a message form. You'll get the tarball, the install instructions and the licence back by email.</p>
       </details>
     </div>
   </div>
@@ -222,17 +261,17 @@
   <div class="outro-inner">
     <h2 class="outro-headline">now go <em>ship</em>.</h2>
     <div class="outro-grid">
-      <p class="outro-meta">The video at the top was made by shipreel, about shipreel, from this repository. That's the demo.</p>
+      <p class="outro-meta">The video at the top was made by shipreel, about shipreel, from its own repository. That is the whole demo.</p>
       <div class="outro-actions">
-        <a class="buy" href="POLAR-CHECKOUT-SOLO">get it — $39 once</a>
+        <a class="buy" href="https://www.irvinosazee.me/contact">get a licence — $39</a>
       </div>
     </div>
     <div class="colophon">
       <span>
-        forked from <a href="https://github.com/latent-spaces/brag" target="_blank" rel="noopener">/brag</a> by shunit haviv hakimi ·
-        rendered with <a href="https://hyperframes.heygen.com/" target="_blank" rel="noopener">hyperframes</a> ·
-        music by <a href="https://ende.app/en" target="_blank" rel="noopener">sascha ende</a> (cc by 4.0) ·
-        sfx by <a href="https://kenney.nl/" target="_blank" rel="noopener">kenney</a> (cc0) ·
+        forked from <a href="https://github.com/latent-spaces/brag" target="_blank" rel="noopener">/brag</a> by shunit haviv hakimi,
+        rendered with <a href="https://hyperframes.heygen.com/" target="_blank" rel="noopener">hyperframes</a>,
+        music by <a href="https://ende.app/en" target="_blank" rel="noopener">sascha ende</a> (cc by 4.0),
+        sfx by <a href="https://kenney.nl/" target="_blank" rel="noopener">kenney</a> (cc0),
         built by <a href="https://www.irvinosazee.me" target="_blank" rel="noopener">irvin osazee</a>
       </span>
     </div>

@@ -5,7 +5,8 @@
 
   --hero-bg: oklch(64% 0.22 var(--hue));
   --hero-ink: oklch(16% 0.06 var(--hue));
-  --hero-ink-soft: oklch(28% 0.06 var(--hue));
+  /* 23%, not 28%: at 28% the 13-20px text on orange measures 4.01:1, under the 4.5 floor. */
+  --hero-ink-soft: oklch(23% 0.06 var(--hue));
   --hero-tint: oklch(96% 0.02 var(--hue));
 
   --dark-bg: oklch(14% 0.03 var(--hue));
@@ -726,78 +727,134 @@ button { font: inherit; cursor: pointer; }
   .card:hover { transform: none; }
 }
 
-/* Sales hero carries a CTA under the headline, so the type runs smaller than the
-   launch site's — the buy button has to clear the fold at 1440x900. */
+/* ===================================================================== sales
+   The product checks its own renders, so the page speaks in its vernacular:
+   a safe-zone overlay on the video, and the real verification report as the
+   one loud element. Everything else stays quiet. */
+
+/* Hero carries a CTA under the headline, so the type runs smaller than the
+   launch site's — the button has to clear the fold at 1440x900. */
 .hero-headline { font-size: clamp(40px, 7.4vw, 104px); }
-
-/* ---------------------------------------------------------------- sales page
-   Added for the sales site. Reuses the launch site's tokens so the page and the
-   hero video read as one thing. */
-
-.hero-cta { margin-top: clamp(28px, 3vw, 40px); display: flex; flex-wrap: wrap; align-items: center; gap: 16px 20px; }
-.cta-note { font-size: clamp(14px, 1.3vw, 16px); font-weight: 500; color: var(--hero-ink-soft); }
+.hero-cta { margin-top: clamp(26px, 3vw, 38px); display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; }
+.cta-note { max-width: 34ch; font-size: clamp(13px, 1.2vw, 15px); line-height: 1.35; color: var(--hero-ink-soft); }
 
 .buy {
-  display: inline-block;
-  padding: 18px 30px;
-  border-radius: var(--radius-md);
-  background: var(--hero-ink);
-  color: var(--hero-tint);
-  font-size: clamp(17px, 1.6vw, 20px);
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  text-decoration: none;
+  display: inline-block; padding: 17px 28px; border-radius: var(--radius-md);
+  background: var(--hero-ink); color: var(--hero-tint);
+  font-size: clamp(16px, 1.5vw, 19px); font-weight: 700; letter-spacing: -0.01em; text-decoration: none;
   transition: transform 0.18s var(--ease-out), opacity 0.18s var(--ease-out);
 }
 .buy:hover, .buy:focus-visible { transform: translateY(-2px); opacity: 0.92; }
 .buy--ghost { background: transparent; color: var(--dark-ink); box-shadow: inset 0 0 0 2px var(--dark-rule); }
 
-.checks, .recurring, .specs, .pricing, .faq { background: var(--dark-bg); color: var(--dark-ink); }
+/* Safe-zone overlay: the rectangle the tool keeps text inside on a 9:16 render. */
+.safe-overlay { position: absolute; inset: 0; pointer-events: none; }
+.safe-rect {
+  position: absolute; left: 6%; right: 14%; top: 13%; bottom: 25%;
+  border: 1px dashed color-mix(in oklch, var(--hero-ink) 55%, transparent); border-radius: 4px;
+}
+.safe-tag {
+  position: absolute; right: 8%; font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: clamp(9px, 0.85vw, 11px); letter-spacing: 0.04em;
+  color: color-mix(in oklch, var(--hero-ink) 70%, transparent);
+}
+.safe-tag--top { top: 5%; }
+.safe-tag--bottom { bottom: 9%; }
+
+/* ------------------------------------------------------------- dark sections */
+.report, .recurring, .platforms, .specs, .pricing, .faq { background: var(--dark-bg); color: var(--dark-ink); }
 .recurring, .pricing { background: var(--dark-bg-elev); }
-.section-inner { max-width: var(--max-page); margin: 0 auto; padding: clamp(72px, 9vw, 140px) clamp(20px, 5vw, 72px); }
-.eyebrow {
-  margin: 0 0 18px; font-family: "Geist Mono", ui-monospace, monospace; font-size: clamp(12px, 1.1vw, 14px);
-  font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dark-accent);
-}
-.section-title {
-  margin: 0 0 28px; font-size: clamp(40px, 6.2vw, 92px); font-weight: 900; line-height: 1.0;
-  letter-spacing: -0.035em; text-transform: lowercase;
-}
-.section-lede { margin: 0 0 36px; max-width: var(--max-line); font-size: clamp(18px, 1.8vw, 24px); line-height: 1.45; color: var(--dark-ink-soft); }
-.section-foot { margin: 36px 0 0; font-size: clamp(15px, 1.4vw, 18px); color: var(--dark-ink-soft); }
+.section-inner { max-width: var(--max-page); margin: 0 auto; padding: clamp(68px, 8vw, 128px) clamp(20px, 5vw, 72px); }
+.section-title { margin: 0 0 26px; font-size: clamp(36px, 5.4vw, 80px); font-weight: 900; line-height: 1.02; letter-spacing: -0.035em; text-transform: lowercase; }
+.section-lede { margin: 0 0 32px; max-width: 58ch; font-size: clamp(17px, 1.7vw, 23px); line-height: 1.45; color: var(--dark-ink-soft); }
+.section-foot { margin: 32px 0 0; max-width: 62ch; font-size: clamp(14px, 1.35vw, 17px); line-height: 1.5; color: var(--dark-ink-soft); }
 .section-foot a, .faq a { color: var(--dark-accent); }
 
-.check-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-.check-list li {
-  padding: 22px 24px; border-radius: var(--radius-md); background: var(--dark-bg-elev);
-  box-shadow: inset 0 0 0 1px var(--dark-rule); font-size: clamp(16px, 1.5vw, 19px); line-height: 1.4; color: var(--dark-ink-soft);
+/* ------------------------------------------------------------ verify report */
+.report-inner {
+  max-width: var(--max-page); margin: 0 auto; padding: clamp(68px, 8vw, 128px) clamp(20px, 5vw, 72px);
+  display: grid; gap: clamp(32px, 5vw, 72px); grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); align-items: center;
 }
-.recurring .check-list li { background: var(--dark-bg); }
-.check-list strong { color: var(--dark-ink); }
+.report-copy .section-foot { margin-top: 24px; }
+.verify {
+  margin: 0; border-radius: var(--radius-lg); background: var(--dark-bg-elev);
+  box-shadow: inset 0 0 0 1px var(--dark-rule), 0 40px 80px -40px rgb(0 0 0 / 0.8); overflow: hidden;
+}
+.verify-head { padding: 16px 22px; border-bottom: 1px solid var(--dark-rule); background: color-mix(in oklch, var(--dark-bg) 70%, transparent); }
+.verify-cmd { font-family: "Geist Mono", ui-monospace, monospace; font-size: clamp(12px, 1.2vw, 15px); color: var(--dark-ink-soft); }
+.verify-cmd::before { content: "$ "; color: var(--dark-accent); }
+.verify-rows { margin: 0; padding: 10px 0; list-style: none; counter-reset: none; }
+.verify-rows li {
+  display: grid; grid-template-columns: 1fr auto auto; gap: 10px 18px; align-items: baseline;
+  padding: 11px clamp(18px, 2vw, 26px);
+  font-family: "Geist Mono", ui-monospace, monospace; font-size: clamp(12px, 1.15vw, 15px);
+}
+.vk { color: var(--dark-ink-soft); }
+.vv { color: var(--dark-ink); font-weight: 500; }
+.vs { color: var(--dark-accent); white-space: nowrap; }
+.vs::after {
+  content: "✓"; display: inline-block; margin-left: 10px; width: 1em;
+  opacity: 0; transform: scale(0.6);
+}
+.verify.is-in .vs::after { animation: tick 0.32s var(--ease-out) forwards; animation-delay: calc(var(--i, 0) * 70ms); }
+@keyframes tick { to { opacity: 1; transform: scale(1); } }
 
-.two-up { display: grid; gap: clamp(28px, 4vw, 56px); grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); }
-.two-up h3, .price-card h3 { margin: 0 0 14px; font-size: clamp(22px, 2.2vw, 30px); font-weight: 700; letter-spacing: -0.02em; }
-.two-up p { margin: 0; max-width: var(--max-line); font-size: clamp(16px, 1.5vw, 19px); line-height: 1.5; color: var(--dark-ink-soft); }
-.plain-list { margin: 0; padding-left: 1.1em; display: grid; gap: 10px; font-size: clamp(15px, 1.4vw, 18px); line-height: 1.45; color: var(--dark-ink-soft); }
-.plain-list code { font-family: "Geist Mono", ui-monospace, monospace; font-size: 0.92em; color: var(--dark-ink); }
-.aside-note { margin-top: 24px; padding: 20px 22px; border-radius: var(--radius-md); background: var(--dark-bg-elev); box-shadow: inset 0 0 0 1px var(--dark-rule); }
-.specs .aside-note { background: var(--dark-bg-elev); }
+/* ------------------------------------------------------- panels and snippets */
+.two-up { display: grid; gap: clamp(24px, 3.5vw, 48px); grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); }
+.two-up h3 { margin: 0 0 12px; font-size: clamp(20px, 2vw, 27px); font-weight: 700; letter-spacing: -0.02em; }
+.two-up p { margin: 0; max-width: 54ch; font-size: clamp(15px, 1.45vw, 18px); line-height: 1.5; color: var(--dark-ink-soft); }
+.panel { padding: clamp(24px, 2.6vw, 34px); border-radius: var(--radius-lg); background: var(--dark-bg); box-shadow: inset 0 0 0 1px var(--dark-rule); }
+.snippet {
+  margin: 22px 0 0; padding: 18px 20px; border-radius: var(--radius-md); overflow-x: auto;
+  background: color-mix(in oklch, var(--dark-bg-elev) 80%, black); box-shadow: inset 0 0 0 1px var(--dark-rule);
+  font-family: "Geist Mono", ui-monospace, monospace; font-size: clamp(11.5px, 1.1vw, 14px); line-height: 1.7; color: var(--dark-ink-soft);
+}
+.snippet .ok { color: var(--dark-accent); }
 
-.price-grid { display: grid; gap: clamp(20px, 3vw, 32px); grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); max-width: 900px; }
-.price-card { padding: clamp(28px, 3vw, 40px); border-radius: var(--radius-lg); background: var(--dark-bg); box-shadow: inset 0 0 0 1px var(--dark-rule); display: flex; flex-direction: column; gap: 20px; }
-.price-card .buy { align-self: flex-start; margin-top: auto; background: var(--dark-accent); color: var(--dark-bg); }
-.price-card--team .buy { background: transparent; color: var(--dark-ink); box-shadow: inset 0 0 0 2px var(--dark-rule); }
-.price { margin: 0; font-size: clamp(44px, 5vw, 68px); font-weight: 900; line-height: 1; letter-spacing: -0.03em; }
-.price span { margin-left: 10px; font-size: clamp(15px, 1.4vw, 18px); font-weight: 500; color: var(--dark-ink-soft); letter-spacing: 0; }
+.plain-list { margin: 0; padding-left: 1.1em; display: grid; gap: 9px; max-width: 52ch; font-size: clamp(14.5px, 1.4vw, 17px); line-height: 1.45; color: var(--dark-ink-soft); }
+.plain-list code, .faq code { font-family: "Geist Mono", ui-monospace, monospace; font-size: 0.92em; color: var(--dark-ink); }
+.aside-note { margin-top: 22px; padding: 18px 20px; max-width: 46ch; border-radius: var(--radius-md); background: var(--dark-bg-elev); box-shadow: inset 0 0 0 1px var(--dark-rule); font-size: clamp(14px, 1.35vw, 16px); line-height: 1.5; color: var(--dark-ink-soft); }
 
-.faq-list { display: grid; gap: 14px; max-width: 920px; }
+/* ------------------------------------------------------------------ marquee */
+.platforms-inner { padding-bottom: clamp(28px, 3vw, 44px); }
+.marquee { overflow: hidden; padding: 6px 0 clamp(60px, 7vw, 110px); mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent); }
+.marquee-track { display: flex; gap: 14px; width: max-content; animation: slide 64s linear infinite; }
+.marquee-track span {
+  padding: 11px 20px; border-radius: 999px; box-shadow: inset 0 0 0 1px var(--dark-rule);
+  font-size: clamp(14px, 1.3vw, 17px); color: var(--dark-ink-soft); white-space: nowrap;
+}
+@keyframes slide { to { transform: translateX(-50%); } }
+.marquee-fallback { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+
+/* ------------------------------------------------------------------ pricing */
+.invoice { max-width: 860px; border-radius: var(--radius-lg); background: var(--dark-bg); box-shadow: inset 0 0 0 1px var(--dark-rule); }
+.invoice-row { display: grid; grid-template-columns: 1fr auto auto; gap: 18px clamp(20px, 3vw, 44px); align-items: center; padding: clamp(24px, 2.8vw, 36px); }
+.invoice-row + .invoice-row { border-top: 1px solid var(--dark-rule); }
+.invoice-what h3 { margin: 0 0 6px; font-size: clamp(20px, 2vw, 26px); font-weight: 700; letter-spacing: -0.02em; }
+.invoice-what p { margin: 0; max-width: 46ch; font-size: clamp(14px, 1.35vw, 17px); line-height: 1.45; color: var(--dark-ink-soft); }
+.price { margin: 0; font-size: clamp(32px, 3.4vw, 46px); font-weight: 900; line-height: 1; letter-spacing: -0.03em; }
+.invoice .buy { background: var(--dark-accent); color: var(--dark-bg); }
+.invoice .buy--ghost { background: transparent; color: var(--dark-ink); }
+
+/* ---------------------------------------------------------------------- faq */
+.faq-list { display: grid; gap: 12px; max-width: 920px; }
 .faq details { border-radius: var(--radius-md); background: var(--dark-bg-elev); box-shadow: inset 0 0 0 1px var(--dark-rule); }
-.faq summary { padding: 22px 24px; cursor: pointer; font-size: clamp(16px, 1.6vw, 20px); font-weight: 600; letter-spacing: -0.01em; }
+.faq summary { padding: 20px 24px; cursor: pointer; font-size: clamp(15px, 1.5vw, 19px); font-weight: 600; letter-spacing: -0.01em; }
 .faq summary::marker { color: var(--dark-accent); }
-.faq details[open] summary { padding-bottom: 8px; }
-.faq details p { margin: 0; padding: 0 24px 24px; max-width: var(--max-line); font-size: clamp(15px, 1.4vw, 18px); line-height: 1.55; color: var(--dark-ink-soft); }
-.faq code { font-family: "Geist Mono", ui-monospace, monospace; font-size: 0.92em; color: var(--dark-ink); }
+.faq details[open] summary { padding-bottom: 6px; }
+.faq details p { margin: 0; padding: 0 24px 22px; max-width: 70ch; font-size: clamp(14.5px, 1.4vw, 17px); line-height: 1.55; color: var(--dark-ink-soft); }
 
 .outro-actions .buy { background: var(--hero-ink); color: var(--hero-tint); }
 
-@media (prefers-reduced-motion: reduce) { .buy { transition: none; } .buy:hover { transform: none; } }
+@media (max-width: 900px) {
+  .report-inner { grid-template-columns: 1fr; }
+  .invoice-row { grid-template-columns: 1fr auto; }
+  .invoice-row .buy { grid-column: 1 / -1; justify-self: start; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .buy { transition: none; }
+  .buy:hover { transform: none; }
+  .marquee-track { animation: none; flex-wrap: wrap; width: auto; }
+  .verify.is-in .vs::after { animation: none; opacity: 1; transform: none; }
+  .vs::after { opacity: 1; transform: none; }
+}

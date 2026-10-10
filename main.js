@@ -113,3 +113,20 @@
     });
   });
 })();
+
+// One orchestrated moment: the verification report ticks itself off when it
+// first comes into view. Everything else on the page waits for a click.
+(() => {
+  const verify = document.querySelector('.verify');
+  if (!verify) return;
+  verify.querySelectorAll('.vs').forEach((row, i) => row.style.setProperty('--i', i));
+  if (!('IntersectionObserver' in window)) return verify.classList.add('is-in');
+  const io = new IntersectionObserver((entries) => {
+    for (const entry of entries) {
+      if (!entry.isIntersecting) continue;
+      entry.target.classList.add('is-in');
+      io.unobserve(entry.target);
+    }
+  }, { threshold: 0.35 });
+  io.observe(verify);
+})();
