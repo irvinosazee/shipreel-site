@@ -858,3 +858,28 @@ button { font: inherit; cursor: pointer; }
   .verify.is-in .vs::after { animation: none; opacity: 1; transform: none; }
   .vs::after { opacity: 1; transform: none; }
 }
+
+/* ------------------------------------------------------------- type system
+   Mono is for things you could type or measure — commands, the report, data.
+   Everything a person reads as prose is Geist, at a size they can read. */
+.topbar { font-family: "Geist", ui-sans-serif, system-ui, sans-serif; font-size: 15px; }
+.topbar .mark { font-family: "Geist Mono", ui-monospace, monospace; font-size: 14px; }
+/* 0.72 opacity composited 13px ink over orange to ~3.6:1. Full strength, underline on hover. */
+.topbar nav { gap: 26px; }
+.topbar nav a { opacity: 1; font-weight: 500; text-underline-offset: 4px; }
+.topbar nav a:hover, .topbar nav a:focus-visible { text-decoration: underline; }
+
+.hero-sub { line-height: 1.25; max-width: 34ch; }
+.cta-note { font-size: clamp(14px, 1.25vw, 15px); line-height: 1.4; }
+.section-lede { font-size: clamp(18px, 1.7vw, 24px); line-height: 1.5; }
+.section-foot { font-size: clamp(15px, 1.35vw, 17px); }
+.two-up p { font-size: clamp(16px, 1.45vw, 18px); line-height: 1.55; }
+.plain-list { font-size: clamp(16px, 1.4vw, 18px); line-height: 1.55; gap: 11px; }
+.aside-note { font-size: clamp(15px, 1.35vw, 17px); line-height: 1.55; }
+.invoice-what p { font-size: clamp(15px, 1.35vw, 17px); line-height: 1.5; }
+.faq summary { font-size: clamp(16px, 1.5vw, 19px); }
+.faq details p { font-size: clamp(16px, 1.4vw, 18px); line-height: 1.6; }
+.marquee-track span { font-size: clamp(15px, 1.3vw, 17px); }
+/* Tighter tracking as display type grows; loose type at 80px reads as a default. */
+.section-title { letter-spacing: -0.04em; }
+.hero-headline { letter-spacing: -0.045em; }
