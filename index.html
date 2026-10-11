@@ -2,8 +2,8 @@
 <!--
   shipreel — sales page.
 
-  BEFORE TAKING PAYMENT: replace every CHECKOUT-SOLO / CHECKOUT-TEAM href with the real product
-  link. Until then they point at the contact page, which is honest: there is no checkout yet.
+  BEFORE TAKING PAYMENT: replace every CHECKOUT href with the real product link. Until then they
+  point at the contact page, which is honest: there is no checkout yet.
 
   Every number on this page is real and checkable in the product repo:
   26 platform presets, 234 tests, 5 frame sizes, -14.9 LUFS / 22.6s / 1080x1920 from the hero render.
@@ -46,8 +46,8 @@
       <h1 class="hero-headline">your releases<br/>deserve better than<br/>a <span class="emph">changelog.</span></h1>
       <p class="hero-sub">A Claude Code skill and CLI that turns your project into a twenty-second launch video, then <strong>measures it</strong> before you post it.</p>
       <div class="hero-cta">
-        <a class="buy" href="https://www.irvinosazee.me/contact">get a licence — $39</a>
-        <span class="cta-note">one developer, perpetual. No checkout yet, so this opens a message form.</span>
+        <a class="buy" href="https://www.irvinosazee.me/contact">get a licence — $49</a>
+        <span class="cta-note">One price, perpetual, no DRM. No checkout yet, so this opens a message form.</span>
       </div>
     </div>
 
@@ -200,26 +200,24 @@
 
 <section class="pricing" id="pricing" aria-labelledby="pricing-title">
   <div class="section-inner">
-    <h2 class="section-title" id="pricing-title">buy it once.</h2>
+    <h2 class="section-title" id="pricing-title">one price. no drm.</h2>
     <div class="invoice">
       <div class="invoice-row">
         <div class="invoice-what">
-          <h3>Solo</h3>
-          <p>One developer. Every project you work on, unlimited videos, yours commercially.</p>
+          <h3>shipreel</h3>
+          <p>Every project you work on, on every machine you own, with everyone you work with. Unlimited videos, yours commercially, forever.</p>
         </div>
-        <p class="price">$39</p>
+        <p class="price">$49</p>
         <a class="buy" href="https://www.irvinosazee.me/contact">get it</a>
       </div>
-      <div class="invoice-row">
-        <div class="invoice-what">
-          <h3>Team</h3>
-          <p>Everyone at one company, including CI on every release.</p>
-        </div>
-        <p class="price">$149</p>
-        <a class="buy buy--ghost" href="https://www.irvinosazee.me/contact">get it</a>
-      </div>
+      <ul class="invoice-included">
+        <li>The skill, the CLI, and every script behind them</li>
+        <li>26 platform presets across 5 frame sizes</li>
+        <li>Release videos, pull-request previews, the GitHub Action</li>
+        <li>12 months of updates — and the version you have never expires</li>
+      </ul>
     </div>
-    <p class="section-foot">Both perpetual, both include 12 months of updates, both refundable for 30 days. No subscription, and no per-render charge — your machine does the rendering.</p>
+    <p class="section-foot">No subscription. No licence server, no activation, no phone-home — nothing in shipreel calls home, so nothing can switch it off. You get a signed licence file with your name in it, which is how updates, support and refunds find you. Refundable for 30 days, no argument. Need an invoice or paperwork for a company? <a href="https://www.irvinosazee.me/contact">Ask</a>.</p>
   </div>
 </section>
 
@@ -229,7 +227,7 @@
     <div class="faq-list">
       <details>
         <summary>There's a free tool called /brag. How is this different?</summary>
-        <p>shipreel is a fork of <a href="https://github.com/latent-spaces/brag" target="_blank" rel="noopener">/brag</a> by Shunit Haviv Hakimi, and that project is good — if it does what you need, use it, it's free. The difference is what sits on top. /brag is a prompt and a set of assets telling an agent how to make one landscape video. shipreel verifies what comes out, reflows one plan across five frame sizes and 26 platforms, captures your running interface, cites on-screen claims to files in your repo, and adds release videos, PR previews, a GitHub Action and a standalone CLI. One script and no tests became 36 scripts and 234.</p>
+        <p>shipreel is a fork of <a href="https://github.com/latent-spaces/brag" target="_blank" rel="noopener">/brag</a> by Shunit Haviv Hakimi, and that project is good — if it does what you need, use it, it's free. The difference is what sits on top. /brag is a prompt and a set of assets telling an agent how to make one landscape video. shipreel verifies what comes out, reflows one plan across five frame sizes and 26 platforms, captures your running interface, cites on-screen claims to files in your repo, and adds release videos, PR previews, a GitHub Action and a standalone CLI. One script and no tests became 35 scripts and 241.</p>
       </details>
       <details>
         <summary>Does my code leave my machine?</summary>
@@ -241,7 +239,11 @@
       </details>
       <details>
         <summary>What am I licensed to do?</summary>
-        <p>Use and modify it, forever, for one developer or for everyone at one company. You can't redistribute or resell the source, or run it as a competing hosted service. Two carve-outs override that: the upstream MIT portions stay MIT, and the bundled audio keeps its own licence.</p>
+        <p>Use and modify it, forever, on every machine you own and with the people you work with. You can't redistribute or resell the source, or run it as a competing hosted service. Two carve-outs override that: the upstream MIT portions stay MIT, and the bundled audio keeps its own licence.</p>
+      </details>
+      <details>
+        <summary>What stops me copying it to a friend?</summary>
+        <p>Nothing does. There is no licence server, no activation and no check that phones home — a tool that reads your private repository shouldn't be making network calls to its author, and any check that ran on your machine would be theatre anyway. What you get is a signed licence file with your name in it: it proves the copy is yours, and it's how updates and support find you. If a friend finds it useful, send them this page rather than the tarball. That's the whole enforcement model, and it's the honest one.</p>
       </details>
       <details>
         <summary>What if it breaks?</summary>
@@ -265,7 +267,7 @@
     <div class="outro-grid">
       <p class="outro-meta">The video at the top was made by shipreel, about shipreel, from its own repository. That is the whole demo.</p>
       <div class="outro-actions">
-        <a class="buy" href="https://www.irvinosazee.me/contact">get a licence — $39</a>
+        <a class="buy" href="https://www.irvinosazee.me/contact">get a licence — $49</a>
       </div>
     </div>
     <div class="colophon">

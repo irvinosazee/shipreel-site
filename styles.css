@@ -834,6 +834,34 @@ button { font: inherit; cursor: pointer; }
 .invoice-what p { margin: 0; max-width: 46ch; font-size: clamp(14px, 1.35vw, 17px); line-height: 1.45; color: var(--dark-ink-soft); }
 .price { margin: 0; font-size: clamp(32px, 3.4vw, 46px); font-weight: 900; line-height: 1; letter-spacing: -0.03em; }
 .invoice .buy { background: var(--dark-accent); color: var(--dark-bg); }
+/* Invoice line items: what the one price covers, set like the body of an invoice. */
+.invoice-included {
+  margin: 0;
+  padding: clamp(20px, 2.4vw, 28px) clamp(24px, 2.8vw, 36px);
+  border-top: 1px solid var(--dark-rule);
+  list-style: none;
+  display: grid;
+  gap: 0;
+}
+.invoice-included li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: baseline;
+  padding: 11px 0;
+  font-size: clamp(14px, 1.3vw, 16px);
+  line-height: 1.45;
+  color: var(--dark-ink-soft);
+}
+.invoice-included li + li { border-top: 1px solid color-mix(in oklab, var(--dark-rule) 55%, transparent); }
+/* The amount column of an invoice, where every line reads the same. */
+.invoice-included li::after {
+  content: "included";
+  font-family: "Geist Mono", ui-monospace, monospace;
+  font-size: 0.74em;
+  letter-spacing: 0.04em;
+  color: var(--dark-accent);
+}
 .invoice .buy--ghost { background: transparent; color: var(--dark-ink); }
 
 /* ---------------------------------------------------------------------- faq */

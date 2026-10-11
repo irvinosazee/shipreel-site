@@ -15,8 +15,8 @@ examples/<slug>/        three example videos with their poster and site thumbnai
 
 ## Before it goes live
 
-1. **Checkout links.** Search for `POLAR-CHECKOUT` in `index.html` — four occurrences, two distinct
-   links (solo and team). Replace with the real product links.
+1. **Checkout links.** Three `https://www.irvinosazee.me/contact` hrefs in `index.html` — the hero
+   CTA, the invoice row, and the outro. Replace all three with the one real product link.
 2. **Publish.** This repo must be public for GitHub Pages on a free plan:
    ```bash
    gh repo create shipreel-site --public --source . --push
@@ -31,8 +31,8 @@ resolve.
 
 ## Keeping it honest
 
-Every claim on the page is checkable against the product repo: 26 platform presets, 234 tests, the
-verification list, the fork credit. If the product changes, change the page — a sales page that
+Every claim on the page is checkable against the product repo: 26 platform presets, 241 tests, the
+verification list, the fork credit. `npm test` there fails if the counts drift. If the product changes, change the page — a sales page that
 drifts from the thing it sells is how refunds start.
 
 Credits: `/brag` by Shunit Haviv Hakimi (MIT) · Hyperframes · music by Sascha Ende (CC BY 4.0) ·
