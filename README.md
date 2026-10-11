@@ -31,7 +31,7 @@ resolve.
 
 ## Keeping it honest
 
-Every claim on the page is checkable against the product repo: 26 platform presets, 241 tests, the
+Every claim on the page is checkable against the product repo: 26 platform presets, 253 tests, the
 verification list, the fork credit. `npm test` there fails if the counts drift. If the product changes, change the page — a sales page that
 drifts from the thing it sells is how refunds start.
 
