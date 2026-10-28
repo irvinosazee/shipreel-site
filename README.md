@@ -25,7 +25,7 @@ git push origin main
 
 ## Keeping it honest
 
-Every claim on the page is checkable against the product repo: 26 platform presets, 258 tests,
+Every claim on the page is checkable against the product repo: 26 platform presets, 260 tests,
 36 scripts, the verification list, the fork credit. `npm test` there fails if the README's counts
 drift, and this page copies them — change both together. The install command is always the scoped
 `@irvinosazee/shipreel`; the unscoped `shipreel` on npm is someone else's package.
