@@ -1,39 +1,34 @@
 # shipreel-site
 
-The public sales page for **shipreel**. This repo is deliberately separate from the product: the
-product repo stays private, and nothing in here is part of the tool.
+The landing page for **shipreel**, the free and open-source launch-video tool at
+[github.com/irvinosazee/shipreel](https://github.com/irvinosazee/shipreel). It asks a visitor for
+two things: run the one-line install, and star the repo. The footer links the author's GitHub,
+LinkedIn, Medium and portfolio, the same accounts irvinosazee.me links to.
 
 What's in it:
 
 ```
 index.html              the page
-styles.css              the launch site's stylesheet, plus a sales section at the bottom
-main.js                 hero video play/mute controls
+styles.css              the launch site's stylesheet, plus the landing sections at the bottom
+main.js                 hero video controls and the copy buttons
 assets/hero.mp4         the 22s video shipreel made about itself (+ poster)
 examples/<slug>/        three example videos with their poster and site thumbnail
 ```
 
-## Before it goes live
+## Publishing
 
-1. **Checkout links.** Three `https://www.irvinosazee.me/contact` hrefs in `index.html` — the hero
-   CTA, the invoice row, and the outro. Replace all three with the one real product link.
-2. **Publish.** This repo must be public for GitHub Pages on a free plan:
-   ```bash
-   gh repo create shipreel-site --public --source . --push
-   gh api -X POST repos/<you>/shipreel-site/pages -f "source[branch]=main" -f "source[path]=/"
-   ```
-3. **Custom domain (optional).** Add a `CNAME` file containing the domain, point a DNS `CNAME` at
-   `<you>.github.io`, and set it in Settings → Pages.
+It is served by GitHub Pages from `main`. Pushing is the release:
 
-Note: project pages serve under your user site's custom domain if one is configured. If
-`<you>.github.io` has a custom domain set that points elsewhere, clear it or this page won't
-resolve.
+```bash
+git push origin main
+```
 
 ## Keeping it honest
 
-Every claim on the page is checkable against the product repo: 26 platform presets, 292 tests, the
-verification list, the fork credit. `npm test` there fails if the counts drift. If the product changes, change the page — a sales page that
-drifts from the thing it sells is how refunds start.
+Every claim on the page is checkable against the product repo: 26 platform presets, 258 tests,
+36 scripts, the verification list, the fork credit. `npm test` there fails if the README's counts
+drift, and this page copies them — change both together. The install command is always the scoped
+`@irvinosazee/shipreel`; the unscoped `shipreel` on npm is someone else's package.
 
 Credits: `/brag` by Shunit Haviv Hakimi (MIT) · Hyperframes · music by Sascha Ende (CC BY 4.0) ·
 SFX by Kenney (CC0).

@@ -911,3 +911,40 @@ button { font: inherit; cursor: pointer; }
 /* Tighter tracking as display type grows; loose type at 80px reads as a default. */
 .section-title { letter-spacing: -0.04em; }
 .hero-headline { letter-spacing: -0.045em; }
+
+/* ------------------------------------------------------------- open source */
+/* The hero CTA is now an install line plus a star, not a price. */
+.hero-cta .install-stack { flex: 1 1 100%; }
+/* Every install box on this page puts the copy button beside the command, never on top of it. */
+.install:has(.copy) { grid-template-columns: minmax(0, 1fr) auto; align-items: center; column-gap: 12px; }
+.install:has(.copy) .copy { position: static; }
+.buy--star { background: transparent; color: var(--hero-ink); box-shadow: inset 0 0 0 2px var(--hero-ink); }
+.outro .buy--star { color: var(--dark-ink); box-shadow: inset 0 0 0 2px var(--dark-rule); }
+
+/* Install rows reuse the invoice frame: what it is on the left, the command on the right. */
+.invoice-row--install { grid-template-columns: minmax(0, 1fr) minmax(0, auto); }
+.invoice-row--install .install-label { color: var(--dark-ink-soft); }
+.invoice-what code, .section-foot code { font-family: "Geist Mono", ui-monospace, monospace; font-size: 0.92em; }
+.invoice-included li::after { content: "free"; }
+@media (max-width: 760px) {
+  .invoice-row--install { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Where to follow the author: the audience this page exists to build. */
+.outro-meta p { margin: 0 0 14px; }
+.follow-label { font-family: "Geist Mono", ui-monospace, monospace; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.75; }
+.follow { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.follow a {
+  display: inline-block; padding: 9px 14px; border-radius: var(--radius-sm);
+  box-shadow: inset 0 0 0 1px currentColor; color: inherit; text-decoration: none;
+  font-family: "Geist Mono", ui-monospace, monospace; font-size: 13px; letter-spacing: 0.02em;
+  transition: transform 0.18s var(--ease-out), opacity 0.18s var(--ease-out);
+}
+.follow a:hover, .follow a:focus-visible { transform: translateY(-2px); opacity: 0.85; }
+/* The install line is long; it scrolls inside its frame rather than widening the hero. */
+.hero-body, .hero-cta, .hero-cta .install-stack { min-width: 0; max-width: 100%; }
+.hero-cta .install, .invoice .install, .outro .install { display: grid; width: 100%; max-width: 100%; }
+.invoice-row--install .install-stack { width: 100%; }
+@media (max-width: 560px) {
+  .hero-cta .install { font-size: 12px; padding: 14px 14px; }
+}

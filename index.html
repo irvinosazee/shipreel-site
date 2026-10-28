@@ -1,19 +1,16 @@
 <!doctype html>
 <!--
-  shipreel — sales page.
-
-  BEFORE TAKING PAYMENT: replace every CHECKOUT href with the real product link. Until then they
-  point at the contact page, which is honest: there is no checkout yet.
+  shipreel — landing page. Free and open source (MIT); the page asks for an install and a star.
 
   Every number on this page is real and checkable in the product repo:
-  26 platform presets, 292 tests, 5 frame sizes, -14.9 LUFS / 22.6s / 1080x1920 from the hero render.
+  26 platform presets, 258 tests, 36 scripts, 5 frame sizes, -14.9 LUFS / 22.6s / 1080x1920 from the hero render.
 -->
 <html lang="en">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>shipreel — the launch video that checks its own work</title>
-<meta name="description" content="A Claude Code skill and CLI that turns your project into a launch video, then verifies it: loudness, phone-legible text, platform safe zones, baked thumbnails. Release videos from git tags, before/after clips on pull requests." />
+<title>shipreel — free launch videos that check their own work</title>
+<meta name="description" content="A free, open-source Claude Code skill and CLI that turns your project into a launch video, then verifies it: loudness, phone-legible text, platform safe zones, baked thumbnails. Release videos from git tags, before/after clips on pull requests." />
 <meta name="theme-color" content="#e8501f" />
 <meta property="og:title" content="shipreel — the launch video that checks its own work" />
 <meta property="og:description" content="Renders a launch video from your project, then measures it before you post: loudness, legibility, safe zones, thumbnails." />
@@ -26,9 +23,12 @@
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <link rel="stylesheet" href="styles.css" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"shipreel","applicationCategory":"DeveloperApplication","operatingSystem":"macOS, Linux, Windows","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"license":"https://opensource.org/licenses/MIT","codeRepository":"https://github.com/irvinosazee/shipreel","author":{"@type":"Person","name":"Irvin Osazee","url":"https://www.irvinosazee.me","sameAs":["https://github.com/irvinosazee","https://www.linkedin.com/in/irvin-osazee","https://medium.com/@uyiosazeeirvin"]}}
+</script>
 </head>
 <body>
-<a class="skip-link" href="#pricing">skip to pricing</a>
+<a class="skip-link" href="#install">skip to install</a>
 <main>
 
 <header class="hero">
@@ -37,7 +37,8 @@
     <nav aria-label="primary">
       <a href="#report">what it checks</a>
       <a href="#examples">examples</a>
-      <a href="#pricing">pricing</a>
+      <a href="#install">install</a>
+      <a href="https://github.com/irvinosazee/shipreel" target="_blank" rel="noopener">github</a>
     </nav>
   </div>
 
@@ -46,8 +47,9 @@
       <h1 class="hero-headline">your releases<br/>deserve better than<br/>a <span class="emph">changelog.</span></h1>
       <p class="hero-sub">A Claude Code skill and CLI that turns your project into a twenty-second launch video, then <strong>measures it</strong> before you post it.</p>
       <div class="hero-cta">
-        <a class="buy" href="https://www.irvinosazee.me/contact">get a licence — $49</a>
-        <span class="cta-note">One price, perpetual, no DRM. No checkout yet, so this opens a message form.</span>
+        <div class="install-stack"><span class="install-label">one line, for claude code</span><pre class="install" aria-label="install shipreel"><code><span class="prompt">$</span> npx @irvinosazee/shipreel skill install</code><button class="copy" type="button" data-copy="npx @irvinosazee/shipreel skill install">copy</button></pre></div>
+        <a class="buy buy--star" href="https://github.com/irvinosazee/shipreel" target="_blank" rel="noopener">★ star on github</a>
+        <span class="cta-note">Free and open source, MIT. Needs Node 22+ and FFmpeg.</span>
       </div>
     </div>
 
@@ -79,7 +81,7 @@
     <div class="report-copy">
       <h2 class="section-title" id="report-title">anything can make a video.</h2>
       <p class="section-lede">The question is whether you can post it without watching all twenty seconds first. shipreel measures every render and tells you what it found — this is the actual report from the video above.</p>
-      <p class="section-foot">A failed check names itself and why. The tool that produces these reports is covered by 292 tests, run on every change.</p>
+      <p class="section-foot">A failed check names itself and why. The tool that produces these reports is covered by 258 tests, run on every change.</p>
     </div>
 
     <figure class="verify" aria-label="verification report for the hero video">
@@ -181,7 +183,7 @@
           <li>Launch kit: covers, thumbnails, an X thread, a LinkedIn post, embed snippets, credits</li>
           <li>Captions, cutdowns, stories, carousels, and nine-language localisation</li>
           <li>Music and sound effects cleared for commercial use</li>
-          <li>12 months of updates; the version you buy keeps working</li>
+          <li>Updates with one command, for as long as it is maintained</li>
         </ul>
       </article>
       <article>
@@ -198,26 +200,39 @@
   </div>
 </section>
 
-<section class="pricing" id="pricing" aria-labelledby="pricing-title">
+<section class="pricing" id="install" aria-labelledby="install-title">
   <div class="section-inner">
-    <h2 class="section-title" id="pricing-title">one price. no drm.</h2>
+    <h2 class="section-title" id="install-title">free. open source.<br/>one line.</h2>
     <div class="invoice">
-      <div class="invoice-row">
+      <div class="invoice-row invoice-row--install">
         <div class="invoice-what">
-          <h3>shipreel</h3>
-          <p>Every project you work on, on every machine you own, with everyone you work with. Unlimited videos, yours commercially, forever.</p>
+          <h3>Claude Code</h3>
+          <p>Puts the skill in <code>~/.claude/skills</code>. Restart Claude Code and say <code>let's /shipreel</code>.</p>
         </div>
-        <p class="price">$49</p>
-        <a class="buy" href="https://www.irvinosazee.me/contact">get it</a>
+        <div class="install-stack"><span class="install-label">install</span><pre class="install" aria-label="install the skill"><code><span class="prompt">$</span> npx @irvinosazee/shipreel skill install</code><button class="copy" type="button" data-copy="npx @irvinosazee/shipreel skill install">copy</button></pre></div>
+      </div>
+      <div class="invoice-row invoice-row--install">
+        <div class="invoice-what">
+          <h3>No agent</h3>
+          <p>The standalone CLI fills a clean template from your package, README, git history and a capture of your site.</p>
+        </div>
+        <div class="install-stack"><span class="install-label">or</span><pre class="install" aria-label="make a video without an agent"><code><span class="prompt">$</span> npx @irvinosazee/shipreel make</code><button class="copy" type="button" data-copy="npx @irvinosazee/shipreel make">copy</button></pre></div>
+      </div>
+      <div class="invoice-row invoice-row--install">
+        <div class="invoice-what">
+          <h3>Updating</h3>
+          <p>Run it again with <code>@latest</code>. Every release comes with a video of what changed, on the releases page.</p>
+        </div>
+        <div class="install-stack"><span class="install-label">update</span><pre class="install" aria-label="update shipreel"><code><span class="prompt">$</span> npx @irvinosazee/shipreel@latest skill install</code><button class="copy" type="button" data-copy="npx @irvinosazee/shipreel@latest skill install">copy</button></pre></div>
       </div>
       <ul class="invoice-included">
-        <li>The skill, the CLI, and every script behind them</li>
+        <li>The skill, the CLI, and every script behind them — MIT, read and fork all of it</li>
         <li>26 platform presets across 5 frame sizes</li>
         <li>Release videos, pull-request previews, the GitHub Action</li>
-        <li>12 months of updates — and the version you have never expires</li>
+        <li>Unlimited videos, yours commercially, no watermark</li>
       </ul>
     </div>
-    <p class="section-foot">No subscription. No licence server, no activation, no phone-home — nothing in shipreel calls home, so nothing can switch it off. You get a signed licence file with your name in it, which is how updates, support and refunds find you. Refundable for 30 days, no argument. Need an invoice or paperwork for a company? <a href="https://www.irvinosazee.me/contact">Ask</a>.</p>
+    <p class="section-foot">Also on the Claude Code plugin marketplace (<code>/plugin marketplace add irvinosazee/shipreel</code>), and for Codex and opencode — <a href="https://github.com/irvinosazee/shipreel#install">every route is in the README</a>. If it made you a video you posted, <a href="https://github.com/irvinosazee/shipreel" target="_blank" rel="noopener">star the repo</a>: it is how other people find it. To see what I build next, follow me on <a href="https://github.com/irvinosazee" target="_blank" rel="noopener">GitHub</a> or <a href="https://www.linkedin.com/in/irvin-osazee" target="_blank" rel="noopener">LinkedIn</a>.</p>
   </div>
 </section>
 
@@ -227,7 +242,7 @@
     <div class="faq-list">
       <details>
         <summary>There's a free tool called /brag. How is this different?</summary>
-        <p>shipreel is a fork of <a href="https://github.com/latent-spaces/brag" target="_blank" rel="noopener">/brag</a> by Shunit Haviv Hakimi, and that project is good — if it does what you need, use it, it's free. The difference is what sits on top. /brag is a prompt and a set of assets telling an agent how to make one landscape video. shipreel verifies what comes out, reflows one plan across five frame sizes and 26 platforms, captures your running interface, cites on-screen claims to files in your repo, and adds release videos, PR previews, a GitHub Action and a standalone CLI. One script and no tests became 37 scripts and 292.</p>
+        <p>shipreel is a fork of <a href="https://github.com/latent-spaces/brag" target="_blank" rel="noopener">/brag</a> by Shunit Haviv Hakimi, and that project is good — if it does what you need, use it. Both are free; the difference is what sits on top. /brag is a prompt and a set of assets telling an agent how to make one landscape video. shipreel verifies what comes out, reflows one plan across five frame sizes and 26 platforms, captures your running interface, cites on-screen claims to files in your repo, and adds release videos, PR previews, a GitHub Action and a standalone CLI. One script and no tests became 36 scripts and 258.</p>
       </details>
       <details>
         <summary>Does my code leave my machine?</summary>
@@ -238,24 +253,20 @@
         <p>Yes — no royalty, no watermark, no credit to shipreel required. The bundled music is CC BY 4.0 by Sascha Ende, so credit him if you use it; every launch kit writes that line into <code>credits.txt</code> for you. Sound effects are CC0 by Kenney. Don't register a render that contains the music with YouTube Content ID — that licence forbids it.</p>
       </details>
       <details>
-        <summary>What am I licensed to do?</summary>
-        <p>Use and modify it, forever, on every machine you own and with the people you work with. You can't redistribute or resell the source, or run it as a competing hosted service. Two carve-outs override that: the upstream MIT portions stay MIT, and the bundled audio keeps its own licence.</p>
-      </details>
-      <details>
-        <summary>What stops me copying it to a friend?</summary>
-        <p>Nothing does. There is no licence server, no activation and no check that phones home — a tool that reads your private repository shouldn't be making network calls to its author, and any check that ran on your machine would be theatre anyway. What you get is a signed licence file with your name in it: it proves the copy is yours, and it's how updates and support find you. If a friend finds it useful, send them this page rather than the tarball. That's the whole enforcement model, and it's the honest one.</p>
+        <summary>Why is it free?</summary>
+        <p>Because a tool that reads your private repository should be one you can read too, and because I would rather a lot of people use it than a few pay for it. It is MIT: use it, fork it, ship it inside your own product. If it saves you an evening, a star on GitHub is the whole price.</p>
       </details>
       <details>
         <summary>What if it breaks?</summary>
-        <p>It drives Hyperframes, FFmpeg and Chrome, which move independently of it, so it can. A nightly job renders a real composition against the current Hyperframes, so breakage shows up within a day rather than when you need a video. If it's broken for you, say so; if it's unusable, take the refund.</p>
+        <p>It drives Hyperframes, FFmpeg and Chrome, which move independently of it, so it can. A nightly job renders a real composition against the current Hyperframes, so breakage shows up within a day rather than when you need a video. If it's broken for you, <a href="https://github.com/irvinosazee/shipreel/issues" target="_blank" rel="noopener">open an issue</a> — or send the fix, it's open source.</p>
       </details>
       <details>
         <summary>Do I need Claude Code?</summary>
         <p>No. The CLI reads your package metadata, README and git history, captures your site, and fills a clean template with no agent at all. An agent writes something made for your project instead of a filled-in template, which is better — but it isn't required.</p>
       </details>
       <details>
-        <summary>Where do I buy it?</summary>
-        <p>Right now, by asking — the checkout isn't live, so the buttons open a message form. You'll get the tarball, the install instructions and the licence back by email.</p>
+        <summary>How do I hear about new versions?</summary>
+        <p>On GitHub, <strong>Watch → Custom → Releases</strong> on <a href="https://github.com/irvinosazee/shipreel" target="_blank" rel="noopener">the repo</a> and you get one notification per release, video included. To follow what I build next: <a href="https://github.com/irvinosazee" target="_blank" rel="noopener">GitHub</a>, <a href="https://www.linkedin.com/in/irvin-osazee" target="_blank" rel="noopener">LinkedIn</a>, or <a href="https://medium.com/@uyiosazeeirvin" target="_blank" rel="noopener">Medium</a>.</p>
       </details>
     </div>
   </div>
@@ -265,9 +276,19 @@
   <div class="outro-inner">
     <h2 class="outro-headline">now go <em>ship</em>.</h2>
     <div class="outro-grid">
-      <p class="outro-meta">The video at the top was made by shipreel, about shipreel, from its own repository. That is the whole demo.</p>
+      <div class="outro-meta">
+        <p>The video at the top was made by shipreel, about shipreel, from its own repository. That is the whole demo.</p>
+        <p class="follow-label">built by irvin osazee — follow along</p>
+        <ul class="follow" aria-label="follow irvin osazee">
+          <li><a href="https://github.com/irvinosazee" target="_blank" rel="noopener me">github</a></li>
+          <li><a href="https://www.linkedin.com/in/irvin-osazee" target="_blank" rel="noopener me">linkedin</a></li>
+          <li><a href="https://medium.com/@uyiosazeeirvin" target="_blank" rel="noopener me">medium</a></li>
+          <li><a href="https://www.irvinosazee.me" target="_blank" rel="noopener me">irvinosazee.me</a></li>
+        </ul>
+      </div>
       <div class="outro-actions">
-        <a class="buy" href="https://www.irvinosazee.me/contact">get a licence — $49</a>
+        <div class="install-stack"><span class="install-label">install</span><pre class="install" aria-label="install shipreel"><code><span class="prompt">$</span> npx @irvinosazee/shipreel skill install</code><button class="copy" type="button" data-copy="npx @irvinosazee/shipreel skill install">copy</button></pre></div>
+        <a class="buy buy--star" href="https://github.com/irvinosazee/shipreel" target="_blank" rel="noopener">★ star on github</a>
       </div>
     </div>
     <div class="colophon">
