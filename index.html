@@ -1,6 +1,6 @@
 <!doctype html>
 <!--
-  shipreel — landing page. Free and open source (MIT); the page asks for an install and a star.
+  shipreel landing page. Free and open source (MIT); the page asks for an install and a star.
 
   Every number on this page is real and checkable in the product repo:
   26 platform presets, 260 tests, 36 scripts, 5 frame sizes, -14.7 LUFS / 22.7s / 1080x1920 from the hero render.
@@ -9,10 +9,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>shipreel — free launch videos that check their own work</title>
+<title>shipreel: free launch videos that check their own work</title>
 <meta name="description" content="A free, open-source Claude Code skill and CLI that turns your project into a launch video, then verifies it: loudness, phone-legible text, platform safe zones, baked thumbnails. Release videos from git tags, before/after clips on pull requests." />
 <meta name="theme-color" content="#e8501f" />
-<meta property="og:title" content="shipreel — the launch video that checks its own work" />
+<meta property="og:title" content="shipreel: the launch video that checks its own work" />
 <meta property="og:description" content="Renders a launch video from your project, then measures it before you post: loudness, legibility, safe zones, thumbnails." />
 <meta property="og:image" content="https://irvinosazee.github.io/shipreel-site/assets/og.jpg" />
 <meta property="og:image:width" content="1200" />
@@ -88,7 +88,7 @@
   <div class="report-inner">
     <div class="report-copy">
       <h2 class="section-title" id="report-title">anything can make a video.</h2>
-      <p class="section-lede">The question is whether you can post it without watching all twenty seconds first. shipreel measures every render and tells you what it found — this is the actual report from the video above.</p>
+      <p class="section-lede">The question is whether you can post it without watching all twenty seconds first. shipreel measures every render and tells you what it found. This is the actual report from the video above.</p>
       <p class="section-foot">A failed check names itself and why. The tool that produces these reports is covered by 260 tests, run on every change.</p>
     </div>
 
@@ -124,7 +124,7 @@
       </article>
       <article class="panel">
         <h3>Open a PR, see the difference</h3>
-        <p>It works out which pages the PR touches, captures them on production and on the preview, scores the change and comments once — editing that comment on every new deploy instead of stacking up.</p>
+        <p>It works out which pages the PR touches, captures them on production and on the preview, scores the change and comments once, then edits that comment on every new deploy instead of stacking up new ones.</p>
         <pre class="snippet" aria-label="example pull request comment"><code>shipreel preview
 
   page      result      ssim
@@ -138,7 +138,7 @@
 <section class="gallery" id="examples" aria-labelledby="gallery-title">
   <div class="gallery-head">
     <h2 class="gallery-title" id="gallery-title">twenty seconds,<br/>three real projects.</h2>
-    <p class="gallery-note">Each made by the tool from that project's own code — no stock footage, no template filled in by hand. Sound on.</p>
+    <p class="gallery-note">Each made by the tool from that project's own code. No stock footage, no template filled in by hand. Sound on.</p>
   </div>
   <div class="grid">
     <article class="card" data-place="feature">
@@ -165,7 +165,7 @@
 <section class="platforms" aria-labelledby="platforms-title">
   <div class="section-inner platforms-inner">
     <h2 class="section-title" id="platforms-title">one plan, every shape.</h2>
-    <p class="section-lede">Five frame sizes — 1920×1080, 1080×1920, 1080×1080, 1080×1350, 1000×1500 — and twenty-six presets that each carry their platform's safe zone, caption style, duration window and size budget, taken from that platform's own documentation.</p>
+    <p class="section-lede">Five frame sizes (1920×1080, 1080×1920, 1080×1080, 1080×1350, 1000×1500) and twenty-six presets that each carry their platform's safe zone, caption style, duration window and size budget, taken from that platform's own documentation.</p>
   </div>
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
@@ -186,7 +186,7 @@
           <li>The <code>/shipreel</code> skill, for Claude Code, Codex, opencode, Cursor, or any agent that reads skills</li>
           <li>The standalone CLI, when you'd rather not involve an agent</li>
           <li>26 platform presets across 5 frame sizes</li>
-          <li>Scene kits — terminal, code editor, phone frame, browser frame, API card, cursor, game HUD</li>
+          <li>Scene kits: terminal, code editor, phone frame, browser frame, API card, cursor, game HUD</li>
           <li>Release-video and PR-preview GitHub Actions</li>
           <li>Launch kit: covers, thumbnails, an X thread, a LinkedIn post, embed snippets, credits</li>
           <li>Captions, cutdowns, stories, carousels, and nine-language localisation</li>
@@ -200,9 +200,9 @@
           <li>Node.js 22 or newer</li>
           <li>FFmpeg on your PATH</li>
           <li>Chrome, for capturing your real interface</li>
-          <li>An agent, only for the bespoke path — the CLI works alone</li>
+          <li>An agent, only for the bespoke path; the CLI works alone</li>
         </ul>
-        <p class="aside-note">Rendering runs on your machine. No account, no upload, no per-render fee, and nothing posted anywhere — shipreel writes files and stops.</p>
+        <p class="aside-note">Rendering runs on your machine. No account, no upload, no per-render fee, and nothing posted anywhere. shipreel writes files and stops.</p>
       </article>
     </div>
   </div>
@@ -253,7 +253,7 @@
     <div class="faq-list">
       <details>
         <summary>There's a free tool called /brag. How is this different?</summary>
-        <p>shipreel is a fork of <a href="https://github.com/latent-spaces/brag" target="_blank" rel="noopener">/brag</a> by Shunit Haviv Hakimi, and that project is good — if it does what you need, use it. Both are free; the difference is what sits on top. /brag is a prompt and a set of assets telling an agent how to make one landscape video. shipreel verifies what comes out, reflows one plan across five frame sizes and 26 platforms, captures your running interface, cites on-screen claims to files in your repo, and adds release videos, PR previews, a GitHub Action and a standalone CLI. One script and no tests became 36 scripts and 260.</p>
+        <p>shipreel is a fork of <a href="https://github.com/latent-spaces/brag" target="_blank" rel="noopener">/brag</a> by Shunit Haviv Hakimi, and that project is good: if it does what you need, use it. Both are free; the difference is what sits on top. /brag is a prompt and a set of assets telling an agent how to make one landscape video. shipreel verifies what comes out, reflows one plan across five frame sizes and 26 platforms, captures your running interface, cites on-screen claims to files in your repo, and adds release videos, PR previews, a GitHub Action and a standalone CLI. One script and no tests became 36 scripts and 260.</p>
       </details>
       <details>
         <summary>Does my code leave my machine?</summary>
@@ -261,7 +261,7 @@
       </details>
       <details>
         <summary>Can I use the videos commercially?</summary>
-        <p>Yes — no royalty, no watermark, no credit to shipreel required. The bundled music is CC BY 4.0 by Sascha Ende, so credit him if you use it; every launch kit writes that line into <code>credits.txt</code> for you. Sound effects are CC0 by Kenney. Don't register a render that contains the music with YouTube Content ID — that licence forbids it.</p>
+        <p>Yes. No royalty, no watermark, no credit to shipreel required. The bundled music is CC BY 4.0 by Sascha Ende, so credit him if you use it; every launch kit writes that line into <code>credits.txt</code> for you. Sound effects are CC0 by Kenney. Don't register a render that contains the music with YouTube Content ID; that licence forbids it.</p>
       </details>
       <details>
         <summary>Why is it free?</summary>
@@ -269,11 +269,11 @@
       </details>
       <details>
         <summary>What if it breaks?</summary>
-        <p>It drives Hyperframes, FFmpeg and Chrome, which move independently of it, so it can. A nightly job renders a real composition against the current Hyperframes, so breakage shows up within a day rather than when you need a video. If it's broken for you, <a href="https://github.com/irvinosazee/shipreel/issues" target="_blank" rel="noopener">open an issue</a> — or send the fix, it's open source.</p>
+        <p>It drives Hyperframes, FFmpeg and Chrome, which move independently of it, so it can. A nightly job renders a real composition against the current Hyperframes, so breakage shows up within a day rather than when you need a video. If it's broken for you, <a href="https://github.com/irvinosazee/shipreel/issues" target="_blank" rel="noopener">open an issue</a>, or send the fix, it's open source.</p>
       </details>
       <details>
         <summary>Do I need Claude Code?</summary>
-        <p>No. The CLI reads your package metadata, README and git history, captures your site, and fills a clean template with no agent at all. An agent writes something made for your project instead of a filled-in template, which is better — but it isn't required.</p>
+        <p>No. The CLI reads your package metadata, README and git history, captures your site, and fills a clean template with no agent at all. An agent writes something made for your project instead of a filled-in template, which is better, but it isn't required.</p>
       </details>
       <details>
         <summary>How do I hear about new versions?</summary>
@@ -289,7 +289,7 @@
     <div class="outro-grid">
       <div class="outro-meta">
         <p>The video at the top was made by shipreel, about shipreel, from its own repository. That is the whole demo.</p>
-        <p class="follow-label">built by irvin osazee — follow along</p>
+        <p class="follow-label">built by irvin osazee · follow along</p>
         <ul class="follow" aria-label="follow irvin osazee">
           <li><a href="https://github.com/irvinosazee" target="_blank" rel="noopener me">github</a></li>
           <li><a href="https://www.linkedin.com/in/irvin-osazee" target="_blank" rel="noopener me">linkedin</a></li>

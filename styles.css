@@ -1068,3 +1068,5 @@ canvas.field { position: absolute; inset: 0; width: 100%; height: 100%; display:
 .topbar .pill-links a { color: oklch(86% 0.03 var(--hue)); }
 .topbar .pill-links a:hover, .topbar .pill-links a.is-on { color: var(--hero-ink); }
 .topbar .pill { gap: 6px; }
+.topbar .pill a, .topbar .pill a:hover, .topbar .pill a:focus-visible { text-decoration: none; }
+.topbar .pill-links a:hover, .topbar .pill-links a.is-on { color: #fff; }
