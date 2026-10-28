@@ -11,7 +11,7 @@ What's in it:
 index.html              the page
 styles.css              the launch site's stylesheet, plus the landing sections at the bottom
 main.js                 hero video controls and the copy buttons
-assets/hero.mp4         the 22s video shipreel made about itself (+ poster)
+assets/hero.mp4         the 23s video shipreel made, and checked, about itself (+ poster, og.jpg)
 examples/<slug>/        three example videos with their poster and site thumbnail
 ```
 
