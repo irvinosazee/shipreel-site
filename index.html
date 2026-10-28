@@ -3,7 +3,7 @@
   shipreel — landing page. Free and open source (MIT); the page asks for an install and a star.
 
   Every number on this page is real and checkable in the product repo:
-  26 platform presets, 260 tests, 36 scripts, 5 frame sizes, -14.9 LUFS / 22.6s / 1080x1920 from the hero render.
+  26 platform presets, 260 tests, 36 scripts, 5 frame sizes, -14.7 LUFS / 22.7s / 1080x1920 from the hero render.
 -->
 <html lang="en">
 <head>
@@ -21,7 +21,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;900&family=Geist+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@700;900&family=Geist+Mono:wght@400;500;700&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 <link rel="stylesheet" href="styles.css" />
@@ -33,14 +33,20 @@
 <a class="skip-link" href="#install">skip to install</a>
 <main>
 
-<header class="hero">
+<header class="hero" id="top">
+  <canvas class="field" aria-hidden="true"></canvas>
   <div class="topbar">
-    <span class="mark">/shipreel</span>
-    <nav aria-label="primary">
-      <a href="#report">what it checks</a>
-      <a href="#examples">examples</a>
-      <a href="#install">install</a>
-      <a href="https://github.com/irvinosazee/shipreel" target="_blank" rel="noopener">github</a>
+    <nav class="pill" aria-label="primary">
+      <a class="mark" href="#top" aria-label="shipreel, back to top"><span class="rec" aria-hidden="true"></span>/shipreel</a>
+      <span class="pill-links">
+        <span class="lamp" aria-hidden="true"></span>
+        <a href="#report" data-spy>what it checks</a>
+        <a href="#examples" data-spy>examples</a>
+        <a href="#install" data-spy>install</a>
+        <a href="#faq" data-spy>faq</a>
+      </span>
+      <span class="pill-tc mono" aria-hidden="true"><span id="pill-tc">00:00.0</span> / 00:22.7</span>
+      <a class="pill-gh" href="https://github.com/irvinosazee/shipreel" target="_blank" rel="noopener"><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" fill="currentColor"><path d="M8 0a8 8 0 0 0-2.53 15.59c.4.07.55-.17.55-.38v-1.33c-2.23.48-2.7-1.07-2.7-1.07-.36-.92-.89-1.17-.89-1.17-.73-.5.06-.49.06-.49.8.06 1.23.83 1.23.83.71 1.22 1.87.87 2.33.66.07-.52.28-.87.5-1.07-1.78-.2-3.65-.89-3.65-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.6 7.6 0 0 1 4 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.66 3.95.29.25.54.73.54 1.48v2.2c0 .21.15.46.55.38A8 8 0 0 0 8 0Z"/></svg><span>star</span><b id="gh-stars" hidden></b></a>
     </nav>
   </div>
 
@@ -89,9 +95,9 @@
     <figure class="verify" aria-label="verification report for the hero video">
       <figcaption class="verify-head"><span class="verify-cmd">shipreel verify shipreel.mp4</span></figcaption>
       <ol class="verify-rows">
-        <li><span class="vk">duration</span><span class="vv">22.6s</span><span class="vs">within plan</span></li>
+        <li><span class="vk">duration</span><span class="vv">22.7s</span><span class="vs">within plan</span></li>
         <li><span class="vk">frame</span><span class="vv">1080×1920</span><span class="vs">vertical</span></li>
-        <li><span class="vk">loudness</span><span class="vv">−14.9 LUFS</span><span class="vs">feed-matched</span></li>
+        <li><span class="vk">loudness</span><span class="vv">−14.7 LUFS</span><span class="vs">feed-matched</span></li>
         <li><span class="vk">poster</span><span class="vv">frame 0</span><span class="vs">baked in</span></li>
         <li><span class="vk">type size</span><span class="vv">42px min</span><span class="vs">phone legible</span></li>
         <li><span class="vk">read time</span><span class="vv">0.3s / word</span><span class="vs">held long enough</span></li>
@@ -202,45 +208,48 @@
   </div>
 </section>
 
-<section class="pricing" id="install" aria-labelledby="install-title">
-  <div class="section-inner">
-    <h2 class="section-title" id="install-title">free. open source.<br/>one line.</h2>
-    <div class="invoice">
-      <div class="invoice-row invoice-row--install">
-        <div class="invoice-what">
-          <h3>Claude Code</h3>
-          <p>Puts the skill in <code>~/.claude/skills</code>. Restart Claude Code and say <code>let's /shipreel</code>.</p>
+<section class="pricing launch" id="install" aria-labelledby="install-title">
+  <canvas class="field" aria-hidden="true"></canvas>
+  <div class="section-inner launch-inner">
+    <div class="launch-grid">
+      <div class="launch-copy">
+        <p class="kicker">free · open source · MIT</p>
+        <h2 class="section-title launch-title" id="install-title">one line.<br/>every <em>feed.</em></h2>
+        <p class="launch-sub">Install it once. Every video it makes leaves ready for 26 platforms, checked before it goes out.</p>
+        <div class="console" data-console>
+          <div class="console-tabs" role="tablist" aria-label="ways to install">
+            <button type="button" role="tab" aria-selected="true">claude code</button>
+            <button type="button" role="tab" aria-selected="false" tabindex="-1">no agent</button>
+            <button type="button" role="tab" aria-selected="false" tabindex="-1">marketplace</button>
+            <button type="button" role="tab" aria-selected="false" tabindex="-1">update</button>
+          </div>
+          <div class="console-body" role="tabpanel">
+            <pre class="install console-line" aria-label="install command"><code><span class="prompt">$</span> <span class="console-cmd">npx @irvinosazee/shipreel skill install</span><span class="caret" aria-hidden="true"></span></code><button class="copy" type="button" data-copy="npx @irvinosazee/shipreel skill install">copy</button></pre>
+            <div class="console-out"></div>
+            <p class="console-note">Puts the skill in <code>~/.claude/skills</code>. Restart Claude Code and say <code>let's /shipreel</code>.</p>
+          </div>
         </div>
-        <div class="install-stack"><span class="install-label">install</span><pre class="install" aria-label="install the skill"><code><span class="prompt">$</span> npx @irvinosazee/shipreel skill install</code><button class="copy" type="button" data-copy="npx @irvinosazee/shipreel skill install">copy</button></pre></div>
       </div>
-      <div class="invoice-row invoice-row--install">
-        <div class="invoice-what">
-          <h3>No agent</h3>
-          <p>The standalone CLI fills a clean template from your package, README, git history and a capture of your site.</p>
-        </div>
-        <div class="install-stack"><span class="install-label">or</span><pre class="install" aria-label="make a video without an agent"><code><span class="prompt">$</span> npx @irvinosazee/shipreel make</code><button class="copy" type="button" data-copy="npx @irvinosazee/shipreel make">copy</button></pre></div>
-      </div>
-      <div class="invoice-row invoice-row--install">
-        <div class="invoice-what">
-          <h3>Updating</h3>
-          <p>Run it again with <code>@latest</code>. Every release comes with a video of what changed, on the releases page.</p>
-        </div>
-        <div class="install-stack"><span class="install-label">update</span><pre class="install" aria-label="update shipreel"><code><span class="prompt">$</span> npx @irvinosazee/shipreel@latest skill install</code><button class="copy" type="button" data-copy="npx @irvinosazee/shipreel@latest skill install">copy</button></pre></div>
-      </div>
-      <ul class="invoice-included">
-        <li>The skill, the CLI, and every script behind them — MIT, read and fork all of it</li>
-        <li>26 platform presets across 5 frame sizes</li>
-        <li>Release videos, pull-request previews, the GitHub Action</li>
-        <li>Unlimited videos, yours commercially, no watermark</li>
-      </ul>
+      <div class="globe" data-globe aria-hidden="true"><canvas></canvas><span class="globe-word">shipreel</span></div>
     </div>
-    <p class="section-foot">Also on the Claude Code plugin marketplace (<code>/plugin marketplace add irvinosazee/shipreel</code>), and for Codex and opencode — <a href="https://github.com/irvinosazee/shipreel#install">every route is in the README</a>, and <a href="https://github.com/irvinosazee/shipreel/blob/main/docs/manual.md">the manual</a> covers every flag. If it made you a video you posted, <a href="https://github.com/irvinosazee/shipreel" target="_blank" rel="noopener">star the repo</a>: it is how other people find it. To see what I build next, follow me on <a href="https://github.com/irvinosazee" target="_blank" rel="noopener">GitHub</a> or <a href="https://www.linkedin.com/in/irvin-osazee" target="_blank" rel="noopener">LinkedIn</a>.</p>
+    <ul class="perks">
+      <li><span class="perk-n" data-count="26">26</span><span>platform presets across 5 frame sizes</span></li>
+      <li><span class="perk-n" data-count="260">260</span><span>tests on every push</span></li>
+      <li><span class="perk-n">$0</span><span>MIT. Unlimited videos, yours commercially, no watermark</span></li>
+      <li><span class="perk-n">3</span><span>kinds of video: launch, release, pull-request preview</span></li>
+    </ul>
+    <div class="launch-foot">
+      <a class="buy buy--star" href="https://github.com/irvinosazee/shipreel" target="_blank" rel="noopener">★ star on github <b>the whole price</b></a>
+      <p>Every route, including Codex and opencode, is in <a href="https://github.com/irvinosazee/shipreel#install">the README</a>; <a href="https://github.com/irvinosazee/shipreel/blob/main/docs/manual.md">the manual</a> covers every flag. To see what I build next, follow me on <a href="https://github.com/irvinosazee" target="_blank" rel="noopener">GitHub</a> or <a href="https://www.linkedin.com/in/irvin-osazee" target="_blank" rel="noopener">LinkedIn</a>.</p>
+    </div>
   </div>
 </section>
 
 <section class="faq" id="faq" aria-labelledby="faq-title">
+  <canvas class="field" aria-hidden="true"></canvas>
   <div class="section-inner">
-    <h2 class="section-title" id="faq-title">straight answers.</h2>
+    <p class="kicker">shipreel --help</p>
+    <h2 class="section-title" id="faq-title">straight <em>answers.</em></h2>
     <div class="faq-list">
       <details>
         <summary>There's a free tool called /brag. How is this different?</summary>
@@ -307,5 +316,6 @@
 
 </main>
 <script src="main.js" defer></script>
+<script src="field.js" defer></script>
 </body>
 </html>
