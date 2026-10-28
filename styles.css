@@ -1072,3 +1072,25 @@ canvas.field { position: absolute; inset: 0; width: 100%; height: 100%; display:
 .topbar .pill-links a:hover, .topbar .pill-links a.is-on { color: #fff; }
 /* The pill lives inside the hero's topbar; lift the topbar above every section so nothing scrolls over it. */
 .hero > .topbar { z-index: 100; }
+
+/* ------------------------------------------------------------- my projects gallery */
+.work-grid { grid-template-columns: minmax(0, 1.75fr) minmax(0, 1fr); grid-template-areas: "feature tall" "wide tall"; align-items: stretch; }
+.work-card[data-place="feature"] { grid-area: feature; }
+.work-card[data-place="wide"] { grid-area: wide; }
+.work-card[data-place="tall"] { grid-area: tall; grid-template-rows: 1fr auto; }
+.work-card[data-place="tall"] .card-media { aspect-ratio: auto; height: 100%; min-height: 420px; }
+.work-cap { display: grid; gap: 6px; padding: 0 2px; }
+.work-line { margin: 0; max-width: 52ch; font-size: 15px; line-height: 1.45; color: var(--dark-ink-soft); }
+.case { justify-self: start; display: inline-flex; gap: 6px; align-items: center; margin-top: 4px; padding: 7px 12px; border-radius: 999px; font: 500 13px "Geist Mono", ui-monospace, monospace; color: var(--dark-ink); text-decoration: none; box-shadow: inset 0 0 0 1px var(--dark-rule); transition: color 0.2s, box-shadow 0.2s, background 0.2s; }
+.case:hover, .case:focus-visible { color: var(--hero-ink); background: var(--dark-accent); box-shadow: none; outline: none; }
+.gallery-note a { color: var(--dark-accent); }
+@media (max-width: 900px) {
+  .work-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "feature" "tall" "wide"; }
+  .work-card[data-place="tall"] .card-media { aspect-ratio: 9 / 16; height: auto; min-height: 0; max-width: 420px; }
+}
+.gallery { overflow: hidden; }
+.gallery > :not(.field) { position: relative; z-index: 1; }
+/* Column split chosen so two 16:9 cards plus captions match one 9:16 card plus caption. */
+.work-grid { grid-template-columns: minmax(0, 1.37fr) minmax(0, 1fr); align-items: start; }
+.work-card[data-place="tall"] { grid-template-rows: auto auto; }
+.work-card[data-place="tall"] .card-media { aspect-ratio: 9 / 16; height: auto; min-height: 0; }
