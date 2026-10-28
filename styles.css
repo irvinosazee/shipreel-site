@@ -1070,3 +1070,5 @@ canvas.field { position: absolute; inset: 0; width: 100%; height: 100%; display:
 .topbar .pill { gap: 6px; }
 .topbar .pill a, .topbar .pill a:hover, .topbar .pill a:focus-visible { text-decoration: none; }
 .topbar .pill-links a:hover, .topbar .pill-links a.is-on { color: #fff; }
+/* The pill lives inside the hero's topbar; lift the topbar above every section so nothing scrolls over it. */
+.hero > .topbar { z-index: 100; }
