@@ -1098,3 +1098,5 @@ canvas.field { position: absolute; inset: 0; width: 100%; height: 100%; display:
   .work-grid { grid-template-columns: minmax(0, 1fr); }
   .work-card[data-place="tall"] .card-media { max-width: 420px; }
 }
+.work-row { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: clamp(28px, 3vw, 44px); align-items: start; }
+@media (max-width: 900px) { .work-row { grid-template-columns: minmax(0, 1fr); } }
