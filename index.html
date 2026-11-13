@@ -319,6 +319,10 @@
         <p>It drives Hyperframes, FFmpeg and Chrome, which move independently of it, so it can. A nightly job renders a real composition against the current Hyperframes, so breakage shows up within a day rather than when you need a video. If it's broken for you, <a href="https://github.com/irvinosazee/shipreel/issues" target="_blank" rel="noopener">open an issue</a>, or send the fix, it's open source.</p>
       </details>
       <details>
+        <summary>What if my product changes mid-campaign?</summary>
+        <p>Today, edit the brief and rerun <code>max --platforms</code> for the platforms you haven't finished; the posting desk keeps your ticks. Coming in 0.5: <code>/shipreel max update</code>. It asks which day of the calendar you're on, rescans your code and git history, checks everything you say changed against a commit or a file in your repo, and rewrites only the posts you haven't sent. Posted ones never move, and anything it can't back up stays out.</p>
+      </details>
+      <details>
         <summary>Do I need Claude Code?</summary>
         <p>No. The CLI reads your package metadata, README and git history, captures your site, and fills a clean template with no agent at all. An agent writes something made for your project instead of a filled-in template, which is better, but it isn't required.</p>
       </details>
